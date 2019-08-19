@@ -2,7 +2,7 @@ package ro.mirodone;
 
 public class EightQueen {
 
-   private final int N = 5;
+   private final int N = 8;
 
 
    private boolean isSafe(int board[][], int row, int col) {
@@ -67,12 +67,7 @@ public class EightQueen {
 
     void solveQueen() {
 
-        int board[][] = {{0, 0, 0, 0,0},
-                        {0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0},
-        };
+        int board [][] = new int [N][N];
 
         //if (solveUtilFct(board, 0) == false)
         if (!solveUtilFct(board, 0)) {
