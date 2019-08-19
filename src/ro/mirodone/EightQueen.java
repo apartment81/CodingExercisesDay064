@@ -2,10 +2,10 @@ package ro.mirodone;
 
 public class EightQueen {
 
-    final int N = 5;
+   private final int N = 5;
 
 
-    boolean isSafe(int board[][], int row, int col) {
+   private boolean isSafe(int board[][], int row, int col) {
         int i, j;
 
         //check row on left side
@@ -29,7 +29,7 @@ public class EightQueen {
 
     //solve problem using a recursive utility function
 
-    boolean solveUtilFct(int board[][], int col) {
+    private boolean solveUtilFct(int board[][], int col) {
 
         //all queens are placed
         if (col >= N)
@@ -43,7 +43,7 @@ public class EightQueen {
                 board[i][col] = 1;
 
                 //recurrence to place all the queens
-                if (solveUtilFct(board, col + 1) == true)
+                if (solveUtilFct(board, col + 1))
                     return true;
 
                 //if placing queen in board[i][col] does not lead to solution,
@@ -56,7 +56,7 @@ public class EightQueen {
     }
 
     // method to print the solution
-    void printSolution(int board[][]) {
+    private void printSolution(int board[][]) {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++)
                 System.out.print(" " + board[i][j]
@@ -65,7 +65,7 @@ public class EightQueen {
         }
     }
 
-    boolean solveQueen() {
+    void solveQueen() {
 
         int board[][] = {{0, 0, 0, 0,0},
                         {0, 0, 0, 0, 0},
@@ -73,13 +73,15 @@ public class EightQueen {
                         {0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0},
         };
-        if (solveUtilFct(board, 0) == false) {
+
+        //if (solveUtilFct(board, 0) == false)
+        if (!solveUtilFct(board, 0)) {
             System.out.println("No solution !");
-            return false;
+
         }
 
         printSolution(board);
-        return true;
+
     }
 
 }
